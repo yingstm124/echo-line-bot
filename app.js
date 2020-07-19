@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000
 // create Line SDK config 
 const config = {
     channelAccessToken: 'EALDDWtXzvKMbkhgBxAPfV5Fb8fTpsxM3D7STllFAaTlvvVg0b5HihNHSv0nB4pm+T12aV04Sq6/EuOA5+kcsYZe8Sf6ze5Pm+Z+XDL+2FW65TC2xO9QSlfT7nGOHYA9u8u9b2uoVdkJnneAO9uFhQdB04t89/1O/w1cDnyilFU=',
-    channelSecret: '549f1f71633134034b597bbb99880d99'
+    channelSecret: 'e36f4ea4431d0e2f3a29f66abe234cbf'
 };
 
 // create Line client
@@ -30,7 +30,7 @@ app.post('/echo', line.middleware(config), (req, res) => {
 function replyClient(event) {
 
 
-    if(event.type != 'message' || event.message.type !== 'text'){
+    if(event.type !== 'message' || event.message.type !== 'text'){
         return Promise.resolve(null)
     }
 
