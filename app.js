@@ -11,7 +11,7 @@ const config = {
 };
 
 // create Line client
-const client = line.Client(config);
+const client = new line.Client(config);
 
 
 app.post('/echo', line.middleware(config), (req, res) => {
