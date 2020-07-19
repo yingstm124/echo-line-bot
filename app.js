@@ -29,18 +29,18 @@ app.post('/echo', line.middleware(config), (req, res) => {
 // replyClient
 function replyClient(event) {
 
+
+    if(event.type != 'message' || event.message.type !== 'text'){
+        return Promise.resolve(null)
+    }
+
     const msg = event.message.text
     const echo = {
         type: 'text',
         text: msg
     }
+    return client.replyMessage(event.replyToken, echo)
 
-    if(event.type != 'message' || event.message.type !== 'text'){
-        return Promise.resolve(null)
-    }
-    else{
-        return client.replyMessage(event.replyToken, echo)
-    }
 }   
 
 app.listen(port, ()=> {
