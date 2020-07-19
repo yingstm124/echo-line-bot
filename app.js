@@ -29,7 +29,7 @@ app.post('/echo', line.middleware(config), (req, res) => {
 // replyClient
 function replyClient(event) {
 
-    let msg = event.message.text
+    const msg = event.message.text
     const echo = {
         type: 'text',
         text: msg
