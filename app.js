@@ -28,22 +28,16 @@ app.get('/', (req, res) => {
 })
 
 app.post('/echo', line.middleware(config), (req, res) => {
-    // Promise
-    //     .all(req.body.events.map(replyClient))
-    //     .then((result) => {
-    //         res.json(result)
-    //     })
-    //     .catch((err) => {
-    //         console.error(err)
-    //         res.status(500).end()
-    //     })
-    res.json(
-        {
-            "type": "sticker",
-            "packageId": "1",
-            "stickerId": "1"
-        }
-    )
+    Promise
+        .all(req.body.events.map(replyClient))
+        .then((result) => {
+            res.json(result)
+        })
+        .catch((err) => {
+            console.error(err)
+            res.status(500).end()
+        })
+    
 })
 
 // replyClient
@@ -65,24 +59,15 @@ function  replyClient(event) {
         p_url = profile.pictureUrl
 
         const echo = {
-            type: 'flex',
-            altText: "this is a flex message",
-            contents: {
-                type: "carousel",
-                contents:[
-                    {
-                        "type": "bubble",
-                        "styles": {},
-                        "body": {},
-                        "footer": {}
-                    },
-                    {
-                        "type": "bubble",
-                        "styles": {},
-                        "body": {},
-                        "footer": {}
-                    }
-                ]
+            type: 'template',
+            altText: 'Confirm alt text',
+            template: {
+            type: 'confirm',
+            text: 'Do it?',
+            actions: [
+              { label: 'Yes', type: 'message', text: 'Yes!' },
+              { label: 'No', type: 'message', text: 'No!' },
+            ],
             }
         }
 
