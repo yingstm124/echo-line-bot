@@ -55,15 +55,16 @@ function  replyClient(event) {
     client.getProfile(event.userId)
     .then((profile) => {
         p_name = profile.displayName
+
+        const echo = {
+            type: 'text',
+            text: p_name
+        }
+        return client.replyMessage(event.replyToken, echo)
     })
-
-    const echo = {
-        type: 'text',
-        text: p_name
-    }
-
-   
-    return client.replyMessage(event.replyToken, echo)
+    .catch(err => {
+        console.log(err)
+    })
 
 }   
 
