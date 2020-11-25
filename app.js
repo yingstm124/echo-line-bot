@@ -28,15 +28,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/echo', line.middleware(config), (req, res) => {
-    Promise
-        .all(req.body.events.map(replyClient))
-        .then((result) => {
-            res.json(result)
-        })
-        .catch((err) => {
-            console.error(err)
-            res.status(500).end()
-        })
+    // Promise
+    //     .all(req.body.events.map(replyClient))
+    //     .then((result) => {
+    //         res.json(result)
+    //     })
+    //     .catch((err) => {
+    //         console.error(err)
+    //         res.status(500).end()
+    //     })
+    res.json(
+        {
+            "type": "sticker",
+            "packageId": "1",
+            "stickerId": "1"
+        }
+    )
 })
 
 // replyClient
