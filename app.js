@@ -58,8 +58,8 @@ function  replyClient(event) {
         p_url = profile.pictureUrl
 
         const echo = {
-            type: 'text',
-            text: p_url,
+            type: 'image',
+            url: p_url,
         }
 
         return client.replyMessage(event.replyToken, echo)
