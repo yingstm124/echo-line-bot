@@ -50,27 +50,16 @@ function  replyClient(event) {
     const msg = event.message.text
 
     var p = event.source.userId
-    var p_name
+    var p_name, p_url
 
     client.getProfile(p)
     .then((profile) => {
         p_name = profile.displayName
+        p_url = profile.pictureUrl
 
         const echo = {
-            type: 'text',
-            text: p_name,
-            emojis: [
-                {
-                  "index": 0,
-                  "productId": "5ac1bfd5040ab15980c9b435",
-                  "emojiId": "001"
-                },
-                {
-                  "index": 13,
-                  "productId": "5ac1bfd5040ab15980c9b435",
-                  "emojiId": "002"
-                }
-            ]
+            type: 'image',
+            originalContentUrl: p_url,
         }
 
         return client.replyMessage(event.replyToken, echo)
