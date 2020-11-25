@@ -52,7 +52,7 @@ function  replyClient(event) {
     var p = event.source.userId
     var p_name
 
-    client.getProfile(event.userId)
+    client.getProfile(p)
     .then((profile) => {
         p_name = profile.displayName
 
