@@ -13,6 +13,8 @@ const config = {
 // create Line client
 const client = new line.Client(config);
 
+client.getProfile()
+
 
 app.post('/echo', line.middleware(config), (req, res) => {
     Promise
@@ -27,7 +29,7 @@ app.post('/echo', line.middleware(config), (req, res) => {
 })
 
 // replyClient
-function replyClient(event) {
+function async replyClient(event) {
 
 
     if(event.type !== 'message' || event.message.type !== 'text'){
@@ -35,18 +37,19 @@ function replyClient(event) {
     }
 
     const msg = event.message.text
+    var p
+
+    await client.getProfile(event.userId)
+        .then((profile) => {
+            p = profile
+    })
+
     const echo = {
         type: 'text',
-        text: "test",
-        emojis: [
-            {
-                "index": 14,
-                "length": 6,
-                "productId": "5ac1bfd5040ab15980c9b435",
-                "emojiId": "001"
-            }
-        ]
+        text: p
     }
+
+   
     return client.replyMessage(event.replyToken, echo)
 
 }   
