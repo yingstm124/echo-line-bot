@@ -15,6 +15,9 @@ const client = new line.Client(config);
 
 client.getProfile()
 
+app.get('/', (req, res) => {
+    console.log('home')
+})
 
 app.post('/echo', line.middleware(config), (req, res) => {
     Promise
