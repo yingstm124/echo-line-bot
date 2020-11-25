@@ -14,13 +14,13 @@ const config = {
 const client = new line.Client(config);
 var p
 
-client.getProfile('Ub797bf3dc1f36a8afc5edf8d2d72a4f9')
-.then((profile) => {
-    p = profile.displayName
-})
-.catch(err => {
-    console.log(err)
-})
+// client.getProfile('Ub797bf3dc1f36a8afc5edf8d2d72a4f9')
+// .then((profile) => {
+//     p = profile.displayName
+// })
+// .catch(err => {
+//     console.log(err)
+// })
 
 app.get('/', (req, res) => {
     res.send('ok')
@@ -48,16 +48,18 @@ function  replyClient(event) {
     }
 
     const msg = event.message.text
-    // var p
 
-    // await client.getProfile(event.userId)
-    //     .then((profile) => {
-    //         p = profile
-    // })
+    var p = event.source.userId
+    var p_name
+
+    client.getProfile(event.userId)
+    .then((profile) => {
+        p_name = profile.displayName
+    })
 
     const echo = {
         type: 'text',
-        text: event.source.userId
+        text: p_name
     }
 
    
