@@ -58,13 +58,22 @@ function  replyClient(event) {
 
         const echo = {
             type: 'text',
-            text: p_name
+            text: p_name,
+            emojis: [
+                {
+                  "index": 0,
+                  "productId": "5ac1bfd5040ab15980c9b435",
+                  "emojiId": "001"
+                },
+                {
+                  "index": 13,
+                  "productId": "5ac1bfd5040ab15980c9b435",
+                  "emojiId": "002"
+                }
+            ]
         }
-        const echo2 = {
-            type: 'text',
-            text: "kasl"
-        }
-        return client.replyMessage(event.replyToken, echo, echo2)
+
+        return client.replyMessage(event.replyToken, echo)
     })
     .catch(err => {
         console.log(err)
