@@ -61,7 +61,21 @@ function  replyClient(event) {
             type: 'flex',
             altText: "this is a flex message",
             contents: {
-                
+                type: "carousel",
+                contents:[
+                    {
+                        "type": "bubble",
+                        "styles": {},
+                        "body": {},
+                        "footer": {}
+                    },
+                    {
+                        "type": "bubble",
+                        "styles": {},
+                        "body": {},
+                        "footer": {}
+                    }
+                ]
             }
         }
 
