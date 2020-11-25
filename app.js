@@ -37,7 +37,15 @@ function replyClient(event) {
     const msg = event.message.text
     const echo = {
         type: 'text',
-        text: "test"
+        text: "test",
+        emojis: [
+            {
+                "index": 14,
+                "length": 6,
+                "productId": "5ac1bfd5040ab15980c9b435",
+                "emojiId": "001"
+            }
+        ]
     }
     return client.replyMessage(event.replyToken, echo)
 
