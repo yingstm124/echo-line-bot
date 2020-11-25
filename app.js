@@ -56,8 +56,9 @@ function  replyClient(event) {
     // })
 
     const echo = {
-        type: 'text',
-        text: event.userId
+        type: 'sticker',
+        "packageId": "1",
+        "stickerId": "1"
     }
 
    
