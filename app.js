@@ -60,6 +60,7 @@ function  replyClient(event) {
         const echo = {
             type: 'image',
             url: p_url,
+            size: 80%
         }
 
         return client.replyMessage(event.replyToken, echo)
