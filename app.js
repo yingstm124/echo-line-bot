@@ -29,7 +29,7 @@ app.post('/echo', line.middleware(config), (req, res) => {
 })
 
 // replyClient
-function async replyClient(event) {
+function  replyClient(event) {
 
 
     if(event.type !== 'message' || event.message.type !== 'text'){
@@ -37,16 +37,16 @@ function async replyClient(event) {
     }
 
     const msg = event.message.text
-    var p
+    // var p
 
-    await client.getProfile(event.userId)
-        .then((profile) => {
-            p = profile
-    })
+    // await client.getProfile(event.userId)
+    //     .then((profile) => {
+    //         p = profile
+    // })
 
     const echo = {
         type: 'text',
-        text: p
+        text: "haha"
     }
 
    
