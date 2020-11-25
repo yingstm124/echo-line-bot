@@ -16,6 +16,7 @@ const client = new line.Client(config);
 client.getProfile()
 
 app.get('/', (req, res) => {
+    res.send('ok')
     console.log('home')
 })
 
