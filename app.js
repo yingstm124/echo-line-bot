@@ -57,7 +57,7 @@ function  replyClient(event) {
 
     const echo = {
         type: 'text',
-        text: p
+        text: event.userId
     }
 
    
