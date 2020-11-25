@@ -12,8 +12,15 @@ const config = {
 
 // create Line client
 const client = new line.Client(config);
+var p
 
-client.getProfile()
+client.getProfile('Ub797bf3dc1f36a8afc5edf8d2d72a4f9')
+.then((profile) => {
+    p = profile.displayName
+})
+.catch(err => {
+    console.log(err)
+})
 
 app.get('/', (req, res) => {
     res.send('ok')
@@ -50,7 +57,7 @@ function  replyClient(event) {
 
     const echo = {
         type: 'text',
-        text: "haha"
+        text: p
     }
 
    
