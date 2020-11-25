@@ -59,8 +59,8 @@ function  replyClient(event) {
 
         const echo = {
             type: 'image',
-            url: p_url,
-            size: 80%
+            originalContentUrl: p_url,
+            previewImageUrl: p_url
         }
 
         return client.replyMessage(event.replyToken, echo)
