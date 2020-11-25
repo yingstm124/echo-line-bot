@@ -37,7 +37,7 @@ function replyClient(event) {
     const msg = event.message.text
     const echo = {
         type: 'text',
-        text: msg
+        text: "test"
     }
     return client.replyMessage(event.replyToken, echo)
 
