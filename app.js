@@ -60,7 +60,11 @@ function  replyClient(event) {
             type: 'text',
             text: p_name
         }
-        return client.replyMessage(event.replyToken, echo)
+        const echo2 = {
+            type: 'text',
+            text: "kasl"
+        }
+        return client.replyMessage(event.replyToken, echo, echo2)
     })
     .catch(err => {
         console.log(err)
